@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<META HTTP-EQUIV="expires" CONTENT="0">
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../js/echarts.min.js"></script>
+	<title>中期实践</title>
+</head>
+<body>
+	<div id="r">
+		<div id="q"><a href="./homepage.html"><img src="../p/logo.png" alt=""></a></div>
+		<div id="t">基于libcap的WLAN帧HTTP载荷分析系统</div>
+		<div class="w" id="w1"><a href="./show.html"><img src="../p/show.jpg" alt=""></a></div>
+		<div class="w" id="w2"><a href="./echart.html"><img src="../p/echart.jpg" alt=""></a></div>
+		<div class="w" id="w3"><a href="./whois.html"><img src="../p/whois.jpg" alt=""></a></div>
+		<div id="e">
+			<script>
+				var xmlhttp=new XMLHttpRequest();
+				xmlhttp.open("GET","date",false);
+				xmlhttp.send();
+				var dateBase = JSON.parse(xmlhttp.responseText);
+				var myChart = echarts.init(document.getElementById('e'));
+				var eData={};
+				for (var i = dateBase.length - 1; i >= 0; i--) {
+					var host=dateBase[i].Host;
+					if (host in eData) {
+						eData[host]++;
+					}
+					else{
+						eData[host]=1;
+					}
+				};
+				var ehartData=[];
+				for (i in eData) {
+					ehartData.push({
+						value:eData[i],
+						name:i.slice(6)
+					});
+				};
+				var option = {
+					    title: {
+					        text: 'Host',
+					        left: 'center'
+					    },
+					    tooltip: {
+					        trigger: 'item',
+					        formatter: '{a} <br/>{b} : {c} ({d}%)'
+					    },
+					    legend: {
+					        orient: 'vertical',
+					        left: 'left',
+					        data: ['weixin.qq.com']
+					    },
+					    series: [
+					        {
+					            name: '访问目的',
+					            type: 'pie',
+					            radius: '70%',
+					            center: ['50%', '55%'],
+					            data: ehartData,
+					            emphasis: {
+					                itemStyle: {
+					                    shadowBlur: 10,
+					                    shadowOffsetX: 0,
+					                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+					                }
+					            }
+					        }
+					    ]
+					};
+		        myChart.setOption(option);
+			</script>
+		</div>
+	</div>
+</body>
+</html>

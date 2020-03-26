@@ -1,0 +1,120 @@
+*{
+	margin: 0;
+	padding: 0;}
+
+body{
+	background-image: url('../p/bg.jpg');
+	background-size: 1350px 770px;}
+
+#r{
+	background-color: white;
+	width: 1000px;
+	height: 600px;
+	margin: 0 auto;
+	position: relative;}
+
+#q{
+	color: black;
+	width: 998px;
+	height: 98px;}
+
+#w{
+	color: black;
+	width: 1000px;
+	height: 500px;
+	position: relative;}
+
+#tu1{
+	width: 1000px;
+	height: 100px;}
+
+#zuo{
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	top: 120px;
+	left: 50px;}
+
+#ewm{
+	width: 235px;
+	height: 312px;
+	margin: 0 auto;
+	display: block;}
+
+#tu2{
+	width: 100px;
+	height: 400px;
+	position: absolute;
+	top: 100px;
+	left: 450px;}
+
+#ld{margin: 0 auto;
+	display: block;}
+
+#you{
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	top: 105px;
+	right: 50px;}
+
+#zh{
+	width: 250px;
+	height: 20px;
+	padding: 10px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 5px;}
+
+#mm{
+	width: 250px;
+	height: 20px;
+	padding: 10px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 0;}
+
+#yz{
+	width: 270px;
+	height: 40px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-left: 65px;
+	margin-bottom: 0;
+	position: relative;}
+
+#yzm{
+	width: 165px;
+	height: 40px;
+	display: block;
+	position: absolute;
+	left: 0;
+	margin-left: 0;}
+
+#code_box{
+	width: 85px;
+	height: 40px;
+	background-color: black;
+	color: #fff;
+	display: block;
+	position: absolute;
+	right: 0;
+	line-height: 36px;
+	text-align: center;
+	cursor: pointer;
+	-webkit-user-select: none;}
+
+#nn{
+	color: white;
+	background-color: #17573C;
+	font-weight: bold;
+	width: 100px;
+	height: 40px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 25px;
+	margin-bottom: 0;
+	cursor: pointer;}

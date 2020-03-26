@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<META HTTP-EQUIV="expires" CONTENT="0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>中期实践</title>
+</head>
+<body>
+	<div id="r">
+		<div id="q"><a href="./homepage.html"><img src="../p/logo.png" alt=""></a></div>
+		<div id="t">基于libcap的WLAN帧HTTP载荷分析系统</div>
+		<div class="w" id="w1"><a href="./show.html"><img src="../p/show.jpg" alt=""></a></div>
+		<div class="w" id="w2"><a href="./echart.html"><img src="../p/echart.jpg" alt=""></a></div>
+		<div class="w" id="w3"><a href="./whois.html"><img src="../p/whois.jpg" alt=""></a></div>
+		<div id="e">
+			<div class="ee" id="e1">数据包顺序号:&emsp;&emsp;&emsp;<strong id="e1s"></strong></div>
+			<div class="ee" id="e2">源IP地址:&emsp;&emsp;&emsp;&emsp;&emsp;<strong id="e2s"></strong></div>
+			<div class="ee" id="e3">目的IP地址:&emsp;&emsp;&emsp;&emsp;<strong id="e3s"></strong></div>
+			<div class="ee" id="e4">HTTP协议get头:&emsp;&emsp;<strong id="e4s"></strong></div>
+			<div class="ee" id="e5">User-Agent头:&emsp;&emsp;&emsp;<strong id="e5s"></strong></div>
+			<div class="ee" id="e6">host头:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong id="e6s"></strong></div>
+			<div class="ee" id="e7">Full request URI头:&emsp;<strong id="e7s"></strong></div>
+			<div class="ee" id="beiyong">
+				<button type="button" id="button1" onclick="showNum=(showNum-1+dateBase.length)%dateBase.length;showData();">上一条</button>
+				<button type="button" id="button2" onclick="showNum=(showNum+1+dateBase.length)%dateBase.length;showData();">下一条</button>
+			</div>
+		</div>
+	</div>&emsp;
+	<script>
+		var xmlhttp=new XMLHttpRequest();
+		xmlhttp.open("GET","date",false);
+		xmlhttp.send();
+		var dateBase=JSON.parse(xmlhttp.responseText);
+		var showNum=0;
+		var e1s = document.getElementById("e1s");
+		var e2s = document.getElementById("e2s");
+		var e3s = document.getElementById("e3s");
+		var e4s = document.getElementById("e4s");
+		var e5s = document.getElementById("e5s");
+		var e6s = document.getElementById("e6s");
+		var e7s = document.getElementById("e7s");
+		showData();
+		function showData () {
+			e1s.innerHTML=dateBase[showNum].num;
+			e2s.innerHTML=dateBase[showNum].src_ip;
+			e3s.innerHTML=dateBase[showNum].dst_ip;
+			e4s.innerHTML=dateBase[showNum].Get_Header;
+			e5s.innerHTML=dateBase[showNum].User_Agent;
+			e6s.innerHTML=dateBase[showNum].Host;
+			e7s.innerHTML=dateBase[showNum].Full_Url;
+		}
+	</script>
+</body>
+</html>

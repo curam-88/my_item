@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<META HTTP-EQUIV="expires" CONTENT="0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>中期实践</title>
+</head>
+<body>
+    <div id="r">
+        <div id="q"><a href="./homepage.html"><img src="../p/logo.png" alt=""></a></div>
+        <div id="t">基于libcap的WLAN帧HTTP载荷分析系统</div>
+        <div class="w" id="w1"><a href="./show.html"><img src="../p/show.jpg" alt=""></a></div>
+        <div class="w" id="w2"><a href="./echart.html"><img src="../p/echart.jpg" alt=""></a></div>
+        <div class="w" id="w3"><a href="./whois.html"><img src="../p/whois.jpg" alt=""></a></div>
+        <div id="e">
+            <div id="e8">whois_id<strong id="e1s"></strong></div>
+            <div id="e9">workplace<strong id="e2s"></strong></div>
+            <div id="e10">phone<strong id="e3s"></strong></div>
+            <div id="e11">
+                <button type="button" id="button3" onclick="showNum=(showNum-1+dateBase.length)%dateBase.length;showData();">上一条</button>
+                <button type="button" id="button4" onclick="showNum=(showNum+1+dateBase.length)%dateBase.length;showData();">下一条</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "whois", false);
+        xmlhttp.send();
+        var dateBase = JSON.parse(xmlhttp.responseText);
+        var showNum = 0;
+        var e1s = document.getElementById("e1s");
+        var e2s = document.getElementById("e2s");
+        var e3s = document.getElementById("e3s");
+        showData();
+        function showData() {
+            e1s.innerHTML = dateBase[showNum].whois_ID;
+            e2s.innerHTML = dateBase[showNum].workplace;
+            e3s.innerHTML = dateBase[showNum].phone;
+        }
+    </script>
+</body>
+</html>

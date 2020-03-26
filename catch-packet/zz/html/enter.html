@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<META HTTP-EQUIV="expires" CONTENT="0">
+	<link rel="stylesheet" href="../css/login.css">
+	<title>登陆界面</title>
+</head>
+<body>
+	<div id="r">
+		<div id="q"><img src="../p/logo.png" alt=""></div>
+		<div id="w">
+			<div id="tu1"><img src="../p/dl.png" alt=""></div>
+			<div id="zuo"><img id="ewm" src="../p/ewm.jpg" alt=""></div>
+			<div id="tu2"><img src="../p/ld.png" alt="" id="ld"></div>
+			<div id="you">
+				<form action="./login" onsubmit='return yanZheng()' method='post'>
+					<input id="zh" type="text" name="user" placeholder="账号" required><br>
+					<input id="mm" type="password" name="password" placeholder="密码" required><br>
+					<div id="yz">
+						<input id="yzm" type="text" placeholder="请输入验证码" required>
+						<div id="code_box">12Ab</div>
+							<script>
+							var result;
+						    var code_box = document.getElementById("code_box");
+						    refreshCode();
+							function yanZheng(){
+								var yzm = document.getElementById("yzm");
+								if (yzm.value===result) {
+									return true;
+								};
+								alert("请输入正确验证码");
+								return false;
+							}
+						    function refreshCode() {
+						        var code = '0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM',
+						            char = '';
+						        result = '';
+						        for (var i = 0; i < 4; i++) {
+						            var code_index = Math.round(Math.random()*61);
+						            var char = code[code_index];
+						            if (result.toUpperCase().indexOf(char.toUpperCase()) > -1)
+						            {	
+						            	i --;
+						                continue;
+						            }
+						            result += char;
+						        }
+						        code_box.innerHTML = result;
+						    }
+						    code_box.onclick = refreshCode;
+						</script>
+					</div>
+					<input id="nn" type="submit" value="登录">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
